@@ -1,0 +1,57 @@
+.container{
+  width: 92%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.navbar{
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(255,255,255,0.88);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+.navbar .nav-inner{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding: 14px 0;
+}
+
+.brand{
+  font-size: 20px;
+  font-weight: 800;
+  color:#0b2a4a;
+}
+
+.nav-links{
+  display:flex;
+  gap: 16px;
+  align-items:center;
+}
+
+.nav-links a{
+  color:#0b2a4a;
+  font-weight:700;
+  padding:8px 12px;
+  border-radius:10px;
+  transition:0.25s;
+}
+
+.nav-links a:hover{
+  background: rgba(0,123,255,0.08);
+}
+
+.badge-user{
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(0,123,255,0.12);
+  color:#0b2a4a;
+  font-weight:800;
+}
+
+.page{
+  padding: 24px 0 40px;
+}

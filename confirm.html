@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Confirm Ticket - Airline Reservation</title>
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/layout.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body onload="setNavUser(); loadConfirm();">
+
+  <div class="animated-bg">
+    <span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span>
+  </div>
+
+  <div class="navbar">
+    <div class="container nav-inner">
+      <div class="brand">Airline Reservation</div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="mybookings.html">My Bookings</a>
+        <span class="badge-user" id="navUser">Guest</span>
+        <a href="#" onclick="logout()">Logout</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="page">
+    <div class="container center-box">
+      <div class="form-card fade-in">
+        <h2 style="color:#0b2a4a;margin-bottom:6px;">Ticket Confirmed ✅</h2>
+        <p class="small-text">Print ticket and save as PDF.</p>
+        <hr class="soft-line"/>
+
+        <div class="ticket-box" id="ticketArea">
+          <div class="ticket-grid">
+            <div><b>Ticket ID:</b> <span id="tId"></span></div>
+            <div><b>User:</b> <span id="tUser"></span></div>
+
+            <div><b>Passenger:</b> <span id="tName"></span></div>
+            <div><b>Phone:</b> <span id="tPhone"></span></div>
+            <div><b>Aadhar:</b> <span id="tAadhar"></span></div>
+
+            <div><b>Route:</b> <span id="tRoute"></span></div>
+            <div><b>Date:</b> <span id="tDate"></span></div>
+
+            <div><b>Class:</b> <span id="tClass"></span></div>
+            <div><b>Passengers:</b> <span id="tSeats"></span></div>
+
+            <div class="full"><b>Total Fare:</b> <span class="fare-big" id="tFare"></span></div>
+            <div class="full"><b>Booked At:</b> <span id="tBooked"></span></div>
+          </div>
+        </div>
+
+        <div class="ticket-bottom no-print" style="margin-top:18px;">
+          <button class="btn-primary" onclick="printTicketPDF()">Print / Save PDF</button>
+          <a class="btn-outline" href="mybookings.html">My Bookings</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script src="/js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login - Airline Reservation</title>
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/layout.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <div class="animated-bg">
+    <span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span>
+  </div>
+
+  <div class="auth-wrap">
+    <!-- LEFT IMAGE -->
+    <div class="auth-left">
+      <img src="/images/login-side.jpg" alt="Login Image">
+    </div>
+
+    <!-- RIGHT FORM -->
+    <div class="auth-right">
+      <div class="auth-card">
+        <div class="auth-title">Welcome Back</div>
+        <div class="auth-sub">Login to continue booking your flight tickets.</div>
+
+        <form onsubmit="loginUser(event)">
+          <label class="form-label">Email</label>
+          <input class="form-control" id="loginEmail" type="email" placeholder="Enter your email" required>
+
+          <div style="height:12px;"></div>
+
+          <label class="form-label">Password</label>
+          <input class="form-control" id="loginPass" type="password" placeholder="Enter your password" required>
+
+          <div style="height:16px;"></div>
+
+          <button class="btn-primary" type="submit" style="width:100%;">Login</button>
+
+          <div style="height:12px;"></div>
+
+          <a class="btn-outline" href="register.html" style="width:100%;text-align:center;">Create new account</a>
+        </form>
+      </div>
+    </div>
+  </div>
+
+<script src="/js/script.js"></script>
+</body>
+</html>

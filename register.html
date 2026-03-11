@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register - Airline Reservation</title>
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/layout.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <div class="animated-bg">
+    <span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span>
+  </div>
+
+  <div class="page">
+    <div class="container center-box">
+      <div class="form-card fade-in">
+        <h2 style="color:#0b2a4a;margin-bottom:6px;">Create Account</h2>
+        <p class="small-text">Register to book tickets online.</p>
+        <hr class="soft-line"/>
+
+        <form onsubmit="registerUser(event)">
+          <div class="form-grid">
+            <div class="full">
+              <label class="form-label">Full Name</label>
+              <input class="form-control" id="regName" type="text" placeholder="Enter your name" required>
+            </div>
+
+            <div class="full">
+              <label class="form-label">Email</label>
+              <input class="form-control" id="regEmail" type="email" placeholder="Enter email" required>
+            </div>
+
+            <div class="full">
+              <label class="form-label">Password</label>
+              <input class="form-control" id="regPass" type="password" placeholder="Create password" required>
+            </div>
+          </div>
+
+          <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap;">
+            <button class="btn-primary" type="submit">Register</button>
+            <a class="btn-outline" href="login.html">Already have account? Login</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+<script src="/js/script.js"></script>
+</body>
+</html>

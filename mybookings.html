@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Bookings - Airline Reservation</title>
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/layout.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body onload="setNavUser(); loadMyBookings();">
+
+  <div class="animated-bg">
+    <span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span>
+  </div>
+
+  <div class="navbar">
+    <div class="container nav-inner">
+      <div class="brand">Airline Reservation</div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="mybookings.html">My Bookings</a>
+        <span class="badge-user" id="navUser">Guest</span>
+        <a href="#" onclick="logout()">Logout</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="page">
+    <div class="container center-box">
+      <div class="form-card fade-in">
+        <h2 style="color:#0b2a4a;margin-bottom:6px;">My Bookings</h2>
+        <p class="small-text">View, print, or cancel tickets.</p>
+        <hr class="soft-line"/>
+
+        <div id="bookingsList"></div>
+      </div>
+    </div>
+  </div>
+
+<script src="/js/script.js"></script>
+</body>
+</html>

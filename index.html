@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home - Airline Reservation</title>
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/layout.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body onload="setNavUser()">
+
+  <div class="animated-bg">
+    <span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span>
+  </div>
+
+  <div class="navbar">
+    <div class="container nav-inner">
+      <div class="brand">Airline Reservation</div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="mybookings.html">My Bookings</a>
+        <span class="badge-user" id="navUser">Guest</span>
+        <a href="#" onclick="logout()">Logout</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="page">
+    <div class="container">
+      <div class="hero">
+        <h1>Book Flights Easily ✈️</h1>
+        <p>Search flights, reserve tickets, confirm booking, and print your ticket as PDF.</p>
+      </div>
+
+      <div class="grid-2" style="margin-top:16px;">
+        <div class="card fade-in">
+          <h3 style="color:#0b2a4a;margin-bottom:10px;">Search Flights</h3>
+
+          <form onsubmit="searchFlights(event)">
+            <div class="form-grid">
+              <div>
+                <label class="form-label">From</label>
+                <select class="form-control" id="fromCity" required>
+                  <option value="Chennai">Chennai</option>
+                  <option value="Mumbai">Mumbai</option>
+                  <option value="Delhi">Delhi</option>
+                  <option value="Bangalore">Bangalore</option>
+                  <option value="Hyderabad">Hyderabad</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="form-label">To</label>
+                <select class="form-control" id="toCity" required>
+                  <option value="Mumbai">Mumbai</option>
+                  <option value="Chennai">Chennai</option>
+                  <option value="Delhi">Delhi</option>
+                  <option value="Bangalore">Bangalore</option>
+                  <option value="Hyderabad">Hyderabad</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="form-label">Travel Date</label>
+                <input class="form-control" id="travelDate" type="date" required>
+              </div>
+
+              <div>
+                <label class="form-label">Passengers</label>
+                <input class="form-control" id="seatCount" type="number" min="1" max="6" value="1" required>
+              </div>
+
+              <div class="full">
+                <button class="btn-primary" type="submit" style="width:100%;">Search & Book</button>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <!-- Flight Results Section -->
+        <div class="card fade-in" id="flightResults" style="display:none;">
+          <h3 style="color:#0b2a4a;margin-bottom:15px;">Available Flights</h3>
+          <div id="flightsList"></div>
+        </div>
+
+        <div class="card fade-in">
+          <h3 style="color:#0b2a4a;margin-bottom:10px;">Offers</h3>
+
+          <div class="grid-3">
+            <div class="offer">
+              <h3>Student Offer</h3>
+              <p>Get up to 15% off on domestic flights.</p>
+            </div>
+            <div class="offer">
+              <h3>Early Bird</h3>
+              <p>Book 20 days early and save more.</p>
+            </div>
+            <div class="offer">
+              <h3>Weekend Deal</h3>
+              <p>Special discounts for weekend trips.</p>
+            </div>
+          </div>
+
+          <hr class="soft-line">
+          <p class="small-text">Tip: After booking, you can print ticket and save it as PDF.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script src="/js/script.js"></script>
+</body>
+</html>

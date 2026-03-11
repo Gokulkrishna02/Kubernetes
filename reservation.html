@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reservation - Airline Reservation</title>
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/layout.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body onload="setNavUser(); loadReservation();">
+
+  <div class="animated-bg">
+    <span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span>
+  </div>
+
+  <div class="navbar">
+    <div class="container nav-inner">
+      <div class="brand">Airline Reservation</div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="mybookings.html">My Bookings</a>
+        <span class="badge-user" id="navUser">Guest</span>
+        <a href="#" onclick="logout()">Logout</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="page">
+    <div class="container center-box">
+      <div class="form-card fade-in">
+        <h2 style="color:#0b2a4a;margin-bottom:6px;">Ticket Reservation</h2>
+        <p class="small-text" id="routeText">Route:</p>
+        <hr class="soft-line"/>
+
+        <div class="form-grid">
+          <div class="full">
+            <label class="form-label">Passenger Name</label>
+            <input class="form-control" id="passengerName" type="text" placeholder="Enter passenger name" required>
+          </div>
+
+          <div>
+            <label class="form-label">Phone</label>
+            <input class="form-control" id="phone" type="tel" placeholder="Enter phone number" pattern="[0-9]{10}" required>
+          </div>
+
+          <div>
+            <label class="form-label">Aadhar Card Number</label>
+            <input class="form-control" id="aadharNumber" type="text" placeholder="Enter 12-digit Aadhar number" pattern="[0-9]{12}" maxlength="12" required>
+            <small class="text-muted">Required for verification and booking</small>
+          </div>
+
+          <div>
+            <label class="form-label">Class</label>
+            <select class="form-control" id="travelClass" onchange="calcFare()">
+              <option value="Economy">Economy</option>
+              <option value="Business">Business</option>
+              <option value="First">First Class</option>
+            </select>
+          </div>
+
+          <div class="full">
+            <label class="form-label">Passengers</label>
+            <input class="form-control" id="seatCountRes" type="number" min="1" max="6" value="1" onchange="calcFare()">
+          </div>
+
+          <div class="full">
+            <label class="form-label">Address</label>
+            <textarea class="form-control" id="address" rows="3" placeholder="Enter address" required></textarea>
+          </div>
+        </div>
+
+        <hr class="soft-line"/>
+
+        <h3 style="color:#0b2a4a;margin-bottom:10px;">Fare Summary</h3>
+        <div class="price-box">
+          <div>
+            <div><b>Base Fare:</b> <span id="baseFare">₹0</span></div>
+            <div><b>Tax:</b> <span id="taxFare">₹0</span></div>
+          </div>
+          <div>
+            <div><b>Total:</b></div>
+            <div class="fare-big" id="totalFare">₹0</div>
+          </div>
+        </div>
+
+        <div style="margin-top:18px;display:flex;gap:10px;flex-wrap:wrap;">
+          <button class="btn-primary" type="button" onclick="proceedTicket()">Proceed & Generate Ticket</button>
+          <a class="btn-outline" href="index.html">Back</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script src="/js/script.js"></script>
+</body>
+</html>
