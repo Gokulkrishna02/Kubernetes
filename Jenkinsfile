@@ -9,15 +9,13 @@ pipeline {
             }
         }
 
-        stage('Setup Python') {
-            steps {
-                bat '''
-                python -m venv venv
-                venv\\Scripts\\activate
-                pip install -r requirements.txt
-                '''
-            }
-        }
+stage('Setup Python') {
+    steps {
+        bat 'python -m venv venv'
+        bat 'venv\\Scripts\\python -m pip install --upgrade pip'
+        bat 'venv\\Scripts\\python -m pip install -r requirements.txt'
+    }
+}
 
         stage('Run App') {
             steps {
