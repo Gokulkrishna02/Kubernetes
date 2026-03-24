@@ -1,0 +1,73 @@
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+*.iml
+*.classpath
+*.project
+.settings/
+.factorypath
+
+# Build
+*.class
+*.jar
+*.war
+*.ear
+bin/
+build/
+dist/
+
+# Test
+.coverage
+htmlcov/
+test-results.xml
+surefire-reports/
+
+# Database
+*.db
+*.h2.db
+airline.db
+
+# Logs
+*.log
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.local
+*.properties.local
+
+# Node (if using npm/webpack for frontend)
+node_modules/
+npm-debug.log
+yarn-error.log
+dist/
+
+# Docker
+.dockerignore
+.docker/
+
+# Reports
+dependency-check-report.html
+dependency-check-report.json
+bandit-report.json
+sonar-project.properties
