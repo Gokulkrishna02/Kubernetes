@@ -3,9 +3,15 @@ pipeline {
 
     stages {
 
-        stage('Checkout Code') {
+        stage('Checkout') {
             steps {
-                git 'https://github.com/GVanithasri/Airline-Reservation-System.git'
+                git branch: 'main', url: 'https://github.com/GVanithasri/Airline-Reservation-System.git'
+            }
+        }
+
+        stage('Debug') {
+            steps {
+                bat 'dir'
             }
         }
 
@@ -21,15 +27,6 @@ pipeline {
             steps {
                 bat 'venv\\Scripts\\python app.py'
             }
-        }
-    }
-
-    post {
-        success {
-            echo 'Build Success '
-        }
-        failure {
-            echo 'Build Failed '
         }
     }
 }
