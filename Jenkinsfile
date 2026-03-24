@@ -12,16 +12,15 @@ pipeline {
         stage('Setup Python') {
             steps {
                 bat '''
-                python -m venv venv
-                venv\\Scripts\\activate
-                pip install -r requirements.txt
+                "C:\\Users\\GV\\AppData\\Local\\Programs\\Python\\Python311\\python.exe" -m venv venv
+                "C:\\Users\\GV\\AppData\\Local\\Programs\\Python\\Python311\\python.exe" -m pip install -r requirements.txt
                 '''
             }
         }
 
         stage('Run App') {
             steps {
-                bat 'python app.py'
+                bat '"C:\\Users\\GV\\AppData\\Local\\Programs\\Python\\Python311\\python.exe" app.py'
             }
         }
     }
