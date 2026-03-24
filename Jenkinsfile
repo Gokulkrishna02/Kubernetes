@@ -25,7 +25,7 @@ pipeline {
 
         stage('Run App') {
             steps {
-                bat 'venv\\Scripts\\python app.py'
+                bat 'start /B venv\\Scripts\\python app.py'
             }
         }
     }
