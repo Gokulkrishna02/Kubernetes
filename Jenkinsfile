@@ -1,6 +1,11 @@
 pipeline {
     agent any
 
+    tools {
+        maven 'Maven 3.8.6'  // Adjust to your Maven installation name in Jenkins
+        jdk 'JDK 11'         // Adjust to your JDK installation name in Jenkins
+    }
+
     stages {
 
         stage('Checkout') {
@@ -9,24 +14,34 @@ pipeline {
             }
         }
 
-        stage('Debug') {
+        stage('Build') {
             steps {
-                bat 'dir'
+                bat 'mvn clean compile'
             }
         }
 
-          stage('Setup Python') {
+        stage('Test') {
             steps {
-                bat "\"C:\\Users\\GV\\AppData\\Local\\Programs\\Python\\Python311\\python.exe\" -m venv venv"
-                bat 'venv\\Scripts\\python -m pip install --upgrade pip'
-                bat 'venv\\Scripts\\python -m pip install -r requirements.txt'
+                bat 'mvn test'
+            }
+        }
+
+        stage('Package') {
+            steps {
+                bat 'mvn package'
             }
         }
 
         stage('Run App') {
             steps {
-                bat 'start /B venv\\Scripts\\python app.py'
+                bat 'start /B java -jar target/airline-reservation-system-1.0.0.jar'
             }
+        }
+    }
+
+    post {
+        always {
+            archiveArtifacts artifacts: 'target/*.jar', allowEmptyArchive: true
         }
     }
 }
