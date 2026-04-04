@@ -35,39 +35,17 @@
         <hr class="soft-line"/>
 
         <div class="form-grid">
+          <div id="passengerForms">
+            <!-- Passenger forms will be generated here -->
+          </div>
+
           <div class="full">
-            <label class="form-label">Passenger Name</label>
-            <input class="form-control" id="passengerName" type="text" placeholder="Enter passenger name" required>
-          </div>
-
-          <div>
-            <label class="form-label">Phone</label>
-            <input class="form-control" id="phone" type="tel" placeholder="Enter phone number" pattern="[0-9]{10}" required>
-          </div>
-
-          <div>
-            <label class="form-label">Aadhar Card Number</label>
-            <input class="form-control" id="aadharNumber" type="text" placeholder="Enter 12-digit Aadhar number" pattern="[0-9]{12}" maxlength="12" required>
-            <small class="text-muted">Required for verification and booking</small>
-          </div>
-
-          <div>
-            <label class="form-label">Class</label>
+            <label class="form-label">Travel Class</label>
             <select class="form-control" id="travelClass" onchange="calcFare()">
               <option value="Economy">Economy</option>
               <option value="Business">Business</option>
               <option value="First">First Class</option>
             </select>
-          </div>
-
-          <div class="full">
-            <label class="form-label">Passengers</label>
-            <input class="form-control" id="seatCountRes" type="number" min="1" max="6" value="1" onchange="calcFare()">
-          </div>
-
-          <div class="full">
-            <label class="form-label">Address</label>
-            <textarea class="form-control" id="address" rows="3" placeholder="Enter address" required></textarea>
           </div>
         </div>
 
@@ -85,8 +63,18 @@
           </div>
         </div>
 
-        <div style="margin-top:18px;display:flex;gap:10px;flex-wrap:wrap;">
-          <button class="btn-primary" type="button" onclick="proceedTicket()">Proceed & Generate Ticket</button>
+        <div style="margin-top:18px;">
+          <button class="btn-primary" type="button" onclick="sendOTP()">Send OTP to Phone</button>
+        </div>
+
+        <div id="otpSection" style="display:none;margin-top:18px;">
+          <label class="form-label">Enter OTP sent to your phone</label>
+          <input class="form-control" id="otpInput" type="text" placeholder="Enter 6-digit OTP" maxlength="6">
+          <button class="btn-primary" type="button" onclick="verifyOTP()">Verify OTP</button>
+        </div>
+
+        <div id="bookSection" style="display:none;margin-top:18px;">
+          <button class="btn-primary" type="button" onclick="proceedTicket()">Confirm & Book Ticket</button>
           <a class="btn-outline" href="index.html">Back</a>
         </div>
       </div>
