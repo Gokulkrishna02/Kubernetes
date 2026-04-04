@@ -2,22 +2,21 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_USERNAME = "gokulkrishna0201"
-        IMAGE_NAME = "airline"
-        IMAGE_TAG = "latest"
+        IMAGE_NAME = "gokulkrishna0201/airline:latest"
     }
 
     stages {
 
         stage('Clone') {
             steps {
-                checkout scm
+                git branch: 'main',
+                    url: 'https://github.com/Gokulkrishna02/Kubernetes.git'
             }
         }
 
-        stage('Build Docker') {
+        stage('Build Docker Image') {
             steps {
-                bat 'docker build -t %DOCKER_USERNAME%/%IMAGE_NAME%:%IMAGE_TAG% .'
+                bat "docker build -t %IMAGE_NAME% ."
             }
         }
 
@@ -25,11 +24,11 @@ pipeline {
             steps {
                 script {
                     withCredentials([usernamePassword(
-                        credentialsId: 'kuber',
+                        credentialsId: 'kuber',   // 🔥 MUST match Jenkins credential ID
                         usernameVariable: 'USER',
                         passwordVariable: 'PASS'
                     )]) {
-                        bat 'echo %PASS% | docker login -u %USER% --password-stdin'
+                        bat "echo %PASS% | docker login -u %USER% --password-stdin"
                     }
                 }
             }
@@ -37,7 +36,7 @@ pipeline {
 
         stage('Push Image') {
             steps {
-                bat 'docker push %DOCKER_USERNAME%/%IMAGE_NAME%:%IMAGE_TAG%'
+                bat "docker push %IMAGE_NAME%"
             }
         }
     }
