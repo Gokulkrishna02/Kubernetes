@@ -21,23 +21,6 @@ spec:
         ports:
         - containerPort: 5000
 
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: airline-service
-
-spec:
-  type: NodePort
-  selector:
-    app: airline-app
-
-  ports:
-  - port: 80
-    targetPort: 5000
-    nodePort: 30007
-
-env:
-- name: DATABASE_URL
-  value: "postgresql://username:password@host:5432/dbname"
-    
+        env:                      # ✅ MUST be inside container
+        - name: DATABASE_URL
+          value: "postgresql://username:password@host:5432/dbname"
