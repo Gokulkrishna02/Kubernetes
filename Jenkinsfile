@@ -1,10 +1,6 @@
 pipeline {
     agent any
 
-    tools {
-        nodejs 'NodeJS_18'
-    }
-
     environment {
         DOCKER_USERNAME = "gokulkrishna0201"
         IMAGE_NAME = "Airline"
@@ -16,12 +12,6 @@ pipeline {
         stage('Clone') {
             steps {
                 checkout scm
-            }
-        }
-
-        stage('Install') {
-            steps {
-                bat 'npm install'
             }
         }
 
