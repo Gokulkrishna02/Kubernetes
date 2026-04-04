@@ -36,3 +36,8 @@ spec:
   - port: 80
     targetPort: 5000
     nodePort: 30007
+
+env:
+- name: DATABASE_URL
+  value: "postgresql://username:password@host:5432/dbname"
+    
