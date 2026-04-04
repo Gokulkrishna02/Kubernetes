@@ -27,8 +27,10 @@ pipeline {
                     usernameVariable: 'USER',
                     passwordVariable: 'PASS'
                 )]) {
-                    bat '''
-                    echo %PASS% | docker login -u %USER% --password-stdin
+                    powershell '''
+                    Write-Host "Logging into DockerHub..."
+                    $pass = $env:PASS
+                    $pass | docker login -u $env:USER --password-stdin
                     '''
                 }
             }
@@ -38,6 +40,15 @@ pipeline {
             steps {
                 bat "docker push %IMAGE_NAME%"
             }
+        }
+    }
+
+    post {
+        success {
+            echo "✅ Docker Image pushed successfully!"
+        }
+        failure {
+            echo "❌ Pipeline failed. Check logs."
         }
     }
 }
