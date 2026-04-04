@@ -23,11 +23,13 @@ pipeline {
         stage('Login DockerHub') {
             steps {
                 withCredentials([usernamePassword(
-                    credentialsId: 'kuber',
+                    credentialsId: 'dockerhub-creds',
                     usernameVariable: 'USER',
                     passwordVariable: 'PASS'
                 )]) {
-                    bat 'echo %PASS% | docker login -u %USER% --password-stdin'
+                    bat '''
+                    echo %PASS% | docker login -u %USER% --password-stdin
+                    '''
                 }
             }
         }
