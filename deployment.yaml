@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: airline-app
+
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: airline-app
+
+  template:
+    metadata:
+      labels:
+        app: airline-app
+
+    spec:
+      containers:
+      - name: airline-app
+        image: gokulkrishna0201/airline:latest
+        ports:
+        - containerPort: 5000
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: airline-service
+
+spec:
+  type: NodePort
+  selector:
+    app: airline-app
+
+  ports:
+  - port: 80
+    targetPort: 5000
+    nodePort: 30007
