@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         DOCKER_USERNAME = "gokulkrishna0201"
-        IMAGE_NAME = "Airline"
+        IMAGE_NAME = "airline"
         IMAGE_TAG = "latest"
     }
 
@@ -25,7 +25,7 @@ pipeline {
             steps {
                 script {
                     withCredentials([usernamePassword(
-                        credentialsId: 'dockerhub-cred',
+                        credentialsId: 'kuber',
                         usernameVariable: 'USER',
                         passwordVariable: 'PASS'
                     )]) {
